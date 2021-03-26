@@ -18,6 +18,8 @@ public class Jeu {
 			
 			switch (choice) {
 			case 1:
+				System.out.println("Tapez un nombre a 4 chiffres.");
+				Nombre nbr = new Nombre(sc.next());
 				break;
 			case 2:
 				break;
