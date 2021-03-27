@@ -18,12 +18,13 @@ public class Nombre {
 	
 	public void Mode1() {
 		int count = 0;
+		String result;
 		do {
 			Scanner sc = new Scanner(System.in);
 			Nombre nbr = new Nombre(sc.next());
+		
 		}
-		while (count < 10);
-
+		while (count < 10 | result != "====");
 	}
 	
 }
