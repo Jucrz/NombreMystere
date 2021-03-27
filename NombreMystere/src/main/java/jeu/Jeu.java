@@ -1,5 +1,6 @@
 package jeu;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Jeu {
@@ -18,9 +19,13 @@ public class Jeu {
 			
 			switch (choice) {
 			case 1:
+				String nbMyst = String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000);
+				Nombre numberMyst = new Nombre(nbMyst);
+				System.out.println(nbMyst);
 				System.out.println("Tapez un nombre a 4 chiffres.");
 				Nombre nbr = new Nombre(sc.next());
 				break;
+				
 			case 2:
 				break;
 			case 3:
