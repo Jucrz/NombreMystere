@@ -1,16 +1,29 @@
 package jeu;
 
+import java.util.ArrayList;
+
 public class Nombre {
 	
-	private int chiffre1;
-	private int chiffre2;
-	private int chiffre3;
-	private int chiffre4;
+	private ArrayList<Integer> listChiffres = new ArrayList<Integer>();
+
 	
 	public Nombre(String nbr) {
-		this.chiffre1 = Character.getNumericValue(nbr.charAt(0));
-		this.chiffre2 = Character.getNumericValue(nbr.charAt(1));
-		this.chiffre3 = Character.getNumericValue(nbr.charAt(2));
-		this.chiffre4 = Character.getNumericValue(nbr.charAt(3));
+		for (int i = 0; i < 4; i++) {
+			this.listChiffres.add(Character.getNumericValue(nbr.charAt(i)));
+		}
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < 4; i++) {
+			sb.append(listChiffres.get(i));
+		}
+
+		return sb.toString();
+	}
+	
+	public void numberCompare() {
+		
 	}
 }
