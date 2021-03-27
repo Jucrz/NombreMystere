@@ -21,11 +21,8 @@ public class Jeu {
 			case 1:
 				String nbMyst = String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000);
 				Nombre numberMyst = new Nombre(nbMyst);
-				System.out.println(nbMyst);
-				System.out.println("Tapez un nombre a 4 chiffres.");
-				Nombre nbr = new Nombre(sc.next());
+				numberMyst.Mode1(numberMyst);
 				break;
-				
 			case 2:
 				System.out.println("Tapez un nombre a 4 chiffres.");
 				Nombre nbr2 = new Nombre(sc.next());
