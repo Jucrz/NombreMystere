@@ -48,23 +48,44 @@ public class Nombre {
 		return resultat;
 	}
 	
-	public void Mode1(Nombre a) {
-		int count = 0;
-		String result;
+	public int Mode1(Nombre a) {		
+		int choice = 1;	
+		int stockChoice = -1;
+		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println("Vous avez " + (10 - count) + " tentative(s).");
-			result = "";
-			System.out.println("Tapez un nombre a 4 chiffres.");
-			Scanner sc = new Scanner(System.in);
-			Nombre nbrUser = new Nombre(sc.next());
-			result = numberCompare(a,nbrUser,result);
-			System.out.println(result);
-			count += 1;
-		} while (count < 10 && result != "====");
-		if (count == 10) {
-			System.out.println("Dommage vous avez perdu. Le nombre était : " + a.toString());
-		} else {
-			System.out.println("Bien joué vous avez gagné !");
-		}
+			if (choice != 1) {
+				choice = sc.nextInt();
+			}
+			switch (choice) {
+			case 1:
+				int count = 0;
+				String result;
+
+				do {
+					System.out.println("Vous avez " + (10 - count) + " tentative(s).");
+					result = "";
+					System.out.println("Tapez un nombre a 4 chiffres.");
+					Nombre nbrUser = new Nombre(sc.next());
+					result = numberCompare(a,nbrUser,result);
+					System.out.println(result);
+					count += 1;
+				} while (count < 10 && result != "====");
+				if (count == 10) {
+					System.out.println("Dommage vous avez perdu. Le nombre était : " + a.toString());
+				} else {
+					System.out.println("Bien joué vous avez gagné !");
+				}
+				System.out.println("Que voulez vous faire ?");
+				System.out.println("1. Rejouer.");
+				System.out.println("2. Changer de mode de jeu.");
+				System.out.println("3. Quitter l'application.");
+				choice = sc.nextInt();
+				break;
+			default :
+				System.out.println("Merci de saisir une valeur entre 1 et 3.");
+				break;
+			}
+		} while (choice != 3 && choice != 2 && choice != 1); 
+		return choice;
 	}	
 }
