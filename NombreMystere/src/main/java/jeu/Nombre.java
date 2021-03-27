@@ -5,13 +5,19 @@ import java.util.ArrayList;
 
 public class Nombre {
 	
+	//Déclaration de l'attribut listChiffres en privé de notre objet.
 	private ArrayList<Integer> listChiffres = new ArrayList<Integer>();
 
-	
+	//Constructeur de l'objet Nombre.
 	public Nombre(String nbr) {
 		for (int i = 0; i < 4; i++) {
 			this.listChiffres.add(Character.getNumericValue(nbr.charAt(i)));
 		}
+	}
+	
+	//Get de l'attribut listChiffres pour pouvoir accéder a ses valeurs
+	public ArrayList<Integer> getListChiffres() {
+		return listChiffres;
 	}
 	
 	public String toString() {
@@ -25,13 +31,18 @@ public class Nombre {
 	}
 	
 	public String numberCompare(Nombre a, Nombre b, String resultat) {
+		int count = 0;
 		for (int i=0; i<4; i++) {
 			if (a.getListChiffres().get(i) < b.getListChiffres().get(i)) {
-				resultat = resultat + "-";
+				resultat += "-";
 			} else if (a.getListChiffres().get(i) > b.getListChiffres().get(i)) {
-				resultat = resultat + "+";
+				resultat += "+";
 			} else {
-				resultat = resultat + "=";
+				count += 1;
+				resultat += "=";
+				if (count == 4) {
+					resultat = "====";
+				}
 			}
 		}
 		return resultat;
@@ -40,32 +51,19 @@ public class Nombre {
 	public void Mode1(Nombre a) {
 		int count = 0;
 		String result;
-		String win = "====";
 		do {
 			result = "";
 			System.out.println("Tapez un nombre a 4 chiffres.");
 			Scanner sc = new Scanner(System.in);
-			Nombre nbr = new Nombre(sc.next());
-			result = numberCompare(a,nbr,result);
+			Nombre nbrUser = new Nombre(sc.next());
+			result = numberCompare(a,nbrUser,result);
 			System.out.println(result);
-			System.out.println(result.length());
 			count += 1;
-		} while (count < 10 && result != win);
+		} while (count < 10 && result != "====");
 		if (count == 10) {
 			System.out.println("Dommage vous avez perdu. Le nombre était : " + a.toString());
 		} else {
 			System.out.println("Bien joué vous avez gagné !");
 		}
-	}
-
-	public ArrayList<Integer> getListChiffres() {
-		return listChiffres;
-	}
-
-	public void setListChiffres(ArrayList<Integer> listChiffres) {
-		this.listChiffres = listChiffres;
-	}
-	
-	
-	
+	}	
 }
