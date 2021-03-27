@@ -52,6 +52,7 @@ public class Nombre {
 		int count = 0;
 		String result;
 		do {
+			System.out.println("Vous avez " + (10 - count) + " tentative(s).");
 			result = "";
 			System.out.println("Tapez un nombre a 4 chiffres.");
 			Scanner sc = new Scanner(System.in);

@@ -14,7 +14,9 @@ public class Jeu {
 		System.out.println("3. Quitter l'application");
 		
 		do {
-			
+			if (choice == 1) {
+				
+			}
 			Scanner sc = new Scanner(System.in);
 			choice = sc.nextInt();
 			
