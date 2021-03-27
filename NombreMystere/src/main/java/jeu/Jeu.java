@@ -27,6 +27,9 @@ public class Jeu {
 				break;
 				
 			case 2:
+				System.out.println("Tapez un nombre a 4 chiffres.");
+				Nombre nbr2 = new Nombre(sc.next());
+				System.out.println(nbr2.toString());
 				break;
 			case 3:
 				break;
