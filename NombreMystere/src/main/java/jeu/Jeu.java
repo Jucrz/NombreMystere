@@ -27,9 +27,9 @@ public class Jeu {
 				numberMyst.Mode1(numberMyst);
 				break;
 			case 2:
-				System.out.println("Tapez un nombre a 4 chiffres.");
-				Nombre nbr2 = new Nombre(sc.next());
-				System.out.println(nbr2.toString());
+				System.out.println("Veuillez saisir un nombre à 4 chiffres.");
+				Nombre numberMyst2 = new Nombre(sc.next());
+				numberMyst2.Mode2(numberMyst2);
 				break;
 			case 3:
 				break;

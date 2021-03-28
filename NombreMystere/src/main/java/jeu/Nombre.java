@@ -2,6 +2,7 @@ package jeu;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Nombre {
 	
@@ -48,6 +49,23 @@ public class Nombre {
 		return resultat;
 	}
 	
+	public void chooseNumber(Nombre nbrComputer, String resultat){
+		String str[] = resultat.split("");
+		for (int i = 0; i < 4; i++) {
+			System.out.println("nbrComputer : " + nbrComputer.getListChiffres());
+			switch (str[i]) {
+			case "-":
+				nbrComputer.listChiffres.set(i, nbrComputer.getListChiffres().get(i)-1);
+				break;
+			case "+":
+				nbrComputer.listChiffres.set(i, nbrComputer.getListChiffres().get(i)+1);
+				break;
+			case "=":
+				break;
+			}
+		}
+	}
+	
 	public void Mode1(Nombre a) {
 		int count = 0;
 		String result;
@@ -67,4 +85,23 @@ public class Nombre {
 			System.out.println("Bien joué vous avez gagné !");
 		}
 	}	
+	
+	public void Mode2(Nombre a) {
+		int count = 0;
+		String result;
+		Nombre nbrComputer = new Nombre(String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000));
+		System.out.println("nbrComputer : " + nbrComputer);
+		do {
+			count += 1;
+			result = "";
+			result = numberCompare(a, nbrComputer, result);
+			nbrComputer.chooseNumber(nbrComputer, result);
+			System.out.println("END");
+		} while (count < 10 && result != "====");
+		if (count == 10) {
+			System.out.println("L'ordinateur a perdu.");
+		} else {
+			System.out.println("L'ordinateur a gagné en " + count + " essais !");
+		}
+	}
 }
