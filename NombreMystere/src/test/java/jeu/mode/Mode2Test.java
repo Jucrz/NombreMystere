@@ -2,6 +2,8 @@ package jeu.mode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 import jeu.nombre.Nombre;
@@ -20,5 +22,20 @@ public class Mode2Test {
 		
 		// Assert
 		assertEquals("=-=+", resultat);
+	}
+	
+	@Test
+	public void testchooseNumber() {
+		// Arrange
+		Nombre a = new Nombre("0110");
+		Mode2 m = new Mode2(a);
+		String resultat = "=-=+";
+		
+		// Act
+		m.chooseNumber(a, resultat);
+		
+		// Assert
+		assertEquals("0011", String.valueOf(a.getListChiffres()).replaceAll("[,]", ""));
+		
 	}
 }
