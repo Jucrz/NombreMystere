@@ -35,7 +35,7 @@ public class Mode2Test {
 		m.chooseNumber(a, resultat);
 		
 		// Assert
-		assertEquals("0011", String.valueOf(a.getListChiffres()).replaceAll("[,]", ""));
+		assertEquals("[0, 0, 1, 1]", String.valueOf(a.getListChiffres()));
 		
 	}
 }
