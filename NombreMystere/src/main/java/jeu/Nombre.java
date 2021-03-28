@@ -2,10 +2,11 @@ package jeu;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Nombre {
 	
-	//Déclaration de l'attribut listChiffres en privé de notre objet.
+	//Dï¿½claration de l'attribut listChiffres en privï¿½ de notre objet.
 	private ArrayList<Integer> listChiffres = new ArrayList<Integer>();
 
 	//Constructeur de l'objet Nombre.
@@ -15,19 +16,9 @@ public class Nombre {
 		}
 	}
 	
-	//Get de l'attribut listChiffres pour pouvoir accéder a ses valeurs
+	//Get de l'attribut listChiffres pour pouvoir accï¿½der a ses valeurs
 	public ArrayList<Integer> getListChiffres() {
 		return listChiffres;
-	}
-	
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		
-		for (int i = 0; i < 4; i++) {
-			sb.append(listChiffres.get(i));
-		}
-
-		return sb.toString();
 	}
 	
 	public String numberCompare(Nombre a, Nombre b, String resultat) {
@@ -48,14 +39,28 @@ public class Nombre {
 		return resultat;
 	}
 	
+	//Fonction permettant ï¿½ l'ordinateur de choisir un nombre par rapport au rï¿½sultat
+	public void chooseNumber(Nombre nbrComputer, String resultat){
+		String str[] = resultat.split("");
+		for (int i = 0; i < 4; i++) {
+			switch (str[i]) {
+			case "-":
+				nbrComputer.listChiffres.set(i, nbrComputer.getListChiffres().get(i)-1);
+				break;
+			case "+":
+				nbrComputer.listChiffres.set(i, nbrComputer.getListChiffres().get(i)+1);
+				break;
+			case "=":
+				break;
+			}
+		}
+	}
 	
-	
-	public int Mode1(Nombre a) {	
-		
-		int choice = 1;
-		Scanner sc = new Scanner(System.in);
+	public void Mode1(Nombre a) {
 		int count = 0;
 		String result;
+		int choice = 1;
+		Scanner sc = new Scanner(System.in);
 		
 		do {
 			System.out.println("Vous avez " + (10 - count) + " tentative(s).");
@@ -68,9 +73,9 @@ public class Nombre {
 		} while (count < 10 && result != "====");
 		
 		if (count == 10) {
-			System.out.println("Dommage vous avez perdu. Le nombre était : " + a.toString());
+			System.out.println("Dommage vous avez perdu. Le nombre ï¿½tait : " + a.toString());
 		} else {
-			System.out.println("Bien joué vous avez gagné !");
+			System.out.println("Bien jouï¿½ vous avez gagnï¿½ !");
 		}	
 
 		do {
@@ -86,4 +91,24 @@ public class Nombre {
 		} while (choice != 3 && choice != 2 && choice != 1); 
 		return choice;
 	}	
+	
+	//Fonction deuxieme mode de jeu
+	public void Mode2(Nombre a) {
+		int count = 0;
+		String result;
+		Nombre nbrComputer = new Nombre(String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000));
+		do {
+			System.out.println("Nombre ordinateur : " + nbrComputer.getListChiffres());
+			count += 1;
+			result = "";
+			result = numberCompare(a, nbrComputer, result);
+			System.out.println(result);
+			nbrComputer.chooseNumber(nbrComputer, result);
+		} while (count < 10 && result != "====");
+		if (count == 10) {
+			System.out.println("L'ordinateur a perdu.");
+		} else {
+			System.out.println("L'ordinateur a gagnï¿½ en " + count + " essais !");
+		}
+	}
 }
