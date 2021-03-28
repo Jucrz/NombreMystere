@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Nombre {
 	
-	//Dï¿½claration de l'attribut listChiffres en privï¿½ de notre objet.
+	//eclaration de l'attribut listChiffres en privï¿½ de notre objet.
 	private ArrayList<Integer> listChiffres = new ArrayList<Integer>();
 
 	//Constructeur de l'objet Nombre.
@@ -16,7 +16,7 @@ public class Nombre {
 		}
 	}
 	
-	//Get de l'attribut listChiffres pour pouvoir accï¿½der a ses valeurs
+	//Get de l'attribut listChiffres pour pouvoir acceder a ses valeurs
 	public ArrayList<Integer> getListChiffres() {
 		return listChiffres;
 	}
@@ -39,7 +39,7 @@ public class Nombre {
 		return resultat;
 	}
 	
-	//Fonction permettant ï¿½ l'ordinateur de choisir un nombre par rapport au rï¿½sultat
+	//Fonction permettant a l'ordinateur de choisir un nombre par rapport au resultat
 	public void chooseNumber(Nombre nbrComputer, String resultat){
 		String str[] = resultat.split("");
 		for (int i = 0; i < 4; i++) {
@@ -56,7 +56,7 @@ public class Nombre {
 		}
 	}
 	
-	public void Mode1(Nombre a) {
+	public int Mode1(Nombre a) {
 		int count = 0;
 		String result;
 		int choice = 1;
@@ -73,9 +73,9 @@ public class Nombre {
 		} while (count < 10 && result != "====");
 		
 		if (count == 10) {
-			System.out.println("Dommage vous avez perdu. Le nombre ï¿½tait : " + a.toString());
+			System.out.println("Dommage vous avez perdu. Le nombre était : " + a.toString());
 		} else {
-			System.out.println("Bien jouï¿½ vous avez gagnï¿½ !");
+			System.out.println("Bien joué vous avez gagnés !");
 		}	
 
 		do {
@@ -108,7 +108,7 @@ public class Nombre {
 		if (count == 10) {
 			System.out.println("L'ordinateur a perdu.");
 		} else {
-			System.out.println("L'ordinateur a gagnï¿½ en " + count + " essais !");
+			System.out.println("L'ordinateur a gagné en " + count + " essais !");
 		}
 	}
 }
