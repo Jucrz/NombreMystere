@@ -56,7 +56,7 @@ public class Nombre {
 		}
 	}
 	
-	public void Mode1(Nombre a) {
+	public int Mode1(Nombre a) {
 		int count = 0;
 		String result;
 		int choice = 1;
