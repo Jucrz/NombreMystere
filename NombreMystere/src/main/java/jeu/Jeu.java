@@ -19,7 +19,11 @@ public class Jeu {
 				System.out.println("1. Deviner le nombre mystère.");
 				System.out.println("2. Faire deviner le nombre mystère.");
 				System.out.println("3. Quitter l'application");
-				choice = sc.nextInt();
+				try {
+					choice = sc.nextInt();
+				} catch(Exception e) {
+					System.out.println("Vous devez taper un nombre a 4 chiffres.");
+				} 
 			}
 			
 			switch (choice) {
