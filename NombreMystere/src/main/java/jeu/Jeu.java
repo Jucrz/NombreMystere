@@ -2,6 +2,10 @@ package jeu;
 
 import java.util.Scanner;
 
+import jeu.mode.Mode1;
+import jeu.mode.Mode2;
+import jeu.nombre.Nombre;
+
 public class Jeu {
 
 	public static void main(String[] args) {
@@ -21,8 +25,8 @@ public class Jeu {
 			switch (choice) {
 			case 1:
 				String nbMyst = String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000);
-				Nombre numberMyst = new Nombre(nbMyst);
-				choice = numberMyst.Mode1(numberMyst);
+				Mode1 m = new Mode1(new Nombre(nbMyst));
+				choice = m.Play();
 				if (choice == 1) {
 					stockChoice = false;
 				} else {
@@ -31,8 +35,8 @@ public class Jeu {
 				break;
 			case 2:
 				System.out.println("Veuillez saisir un nombre à 4 chiffres.");
-				Nombre numberMyst2 = new Nombre(sc.next());
-				choice = numberMyst2.Mode2(numberMyst2);
+				Mode2 m2 = new Mode2(new Nombre(sc.next()));
+				choice = m2.Play();
 				if (choice == 1) {
 					stockChoice = false;
 					choice = 2;
