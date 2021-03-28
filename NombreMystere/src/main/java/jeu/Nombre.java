@@ -93,9 +93,11 @@ public class Nombre {
 	}	
 	
 	//Fonction deuxieme mode de jeu
-	public void Mode2(Nombre a) {
+	public int Mode2(Nombre a) {
+		int choice = 1;
 		int count = 0;
 		String result;
+		Scanner sc = new Scanner(System.in);
 		Nombre nbrComputer = new Nombre(String.valueOf((int)Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000));
 		do {
 			System.out.println("Nombre ordinateur : " + nbrComputer.getListChiffres());
@@ -110,5 +112,18 @@ public class Nombre {
 		} else {
 			System.out.println("L'ordinateur a gagné en " + count + " essais !");
 		}
+		
+		do {
+			System.out.println("Que voulez vous faire ?");
+			System.out.println("1. Rejouer.");
+			System.out.println("2. Changer de mode de jeu.");
+			System.out.println("3. Quitter l'application.");
+			choice = sc.nextInt();
+			
+			if (choice != 1 && choice != 2 && choice != 3 ) {
+				System.out.println("Merci de saisir une valeur entre 1 et 3.");
+			}
+		} while (choice != 3 && choice != 2 && choice != 1); 
+		return choice;
 	}
 }

@@ -32,7 +32,13 @@ public class Jeu {
 			case 2:
 				System.out.println("Veuillez saisir un nombre à 4 chiffres.");
 				Nombre numberMyst2 = new Nombre(sc.next());
-				numberMyst2.Mode2(numberMyst2);
+				choice = numberMyst2.Mode2(numberMyst2);
+				if (choice == 1) {
+					stockChoice = false;
+					choice = 2;
+				} else {
+					stockChoice = true;
+				}
 				break;
 			case 3:
 				break;
